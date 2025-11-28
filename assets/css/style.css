@@ -362,3 +362,101 @@ body {
     text-align: center;
   }
 }
+
+
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Title */
+.about-page h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Intro paragraph */
+.about-intro {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+/* IMPACT SECTION */
+.impact-section {
+  margin-top: 40px;
+}
+
+.impact-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Impact grid */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.impact-card {
+  background: var(--panel);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.25s;
+}
+
+.impact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.impact-icon {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.impact-number {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.impact-text {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* WHAT WE TEACH */
+.about-page h3 {
+  margin-top: 50px;
+  font-size: 24px;
+}
+
+.about-page ul {
+  margin-top: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page h1 {
+    font-size: 28px;
+  }
+
+  .impact-title {
+    text-align: center;
+  }
+}
+
+
