@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Courses — Zeronyte Security</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="logo" href="https://zeronytesecurity.com/">
+        <img src="assets/images/logo.png" alt="Zeronyte Security logo" class="main-logo">
+        <span class="brand">Zeronyte Security</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="https://zeronytesecurity.com/">Home</a>
+        <a href="https://zeronytesecurity.com/courses.html">Courses</a>
+        <a href="https://zeronytesecurity.com/about.html">About</a>
+        <a href="https://zeronytesecurity.com/contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Courses</h1>
+
+    <!-- Courses Grid -->
+    <div id="coursesGrid" class="grid"></div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> Zeronyte Security</p>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/courses.js"></script>
+
+  <!-- Pagination Script -->
+  <script>
+    const perPage = 9;
+    let currentPage = 1;
+
+    function renderCourses() {
+      const grid = document.getElementById("coursesGrid");
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+
+      const currentCourses = courses.slice(start, end);
+
+      grid.innerHTML = "";
+
+      currentCourses.forEach(course => {
+        grid.innerHTML += `
+          <a class="course-card" href="${course.url}" target="_blank">
+            <img src="${course.image}" alt="${course.title}">
+            <h4>${course.title}</h4>
+          </a>
+        `;
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const pagination = document.getElementById("pagination");
+      const totalPages = Math.ceil(courses.length / perPage);
+
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `
+          <button class="page-btn ${i === currentPage ? 'active' : ''}" 
+                  onclick="goToPage(${i})">${i}</button>
+        `;
+      }
+    }
+
+    function goToPage(pageNum) {
+      currentPage = pageNum;
+      renderCourses();
+      window.scrollTo(0, 0);
+    }
+
+    renderCourses();
+  </script>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
