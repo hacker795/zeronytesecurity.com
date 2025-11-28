@@ -4,19 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Courses — Zeronyte Security</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
+
+  <!-- ============================
+       HEADER WITH MOBILE MENU
+  ============================ -->
   <header class="site-header">
     <div class="container header-inner">
 
+      <!-- LOGO -->
       <a class="logo" href="https://zeronytesecurity.com/">
         <img src="assets/images/logo.png" alt="Zeronyte Security logo" class="main-logo">
         <span class="brand">Zeronyte Security</span>
       </a>
 
-      <nav class="main-nav">
+      <!-- HAMBURGER BUTTON -->
+      <button class="hamburger" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- NAVIGATION MENU -->
+      <nav class="main-nav" id="mobileMenu">
         <a href="https://zeronytesecurity.com/">Home</a>
         <a href="https://zeronytesecurity.com/courses.html">Courses</a>
         <a href="https://zeronytesecurity.com/about.html">About</a>
@@ -26,6 +41,10 @@
     </div>
   </header>
 
+
+  <!-- ============================
+        MAIN CONTENT
+  ============================ -->
   <main class="container">
     <h1>Courses</h1>
 
@@ -36,6 +55,10 @@
     <div id="pagination" class="pagination"></div>
   </main>
 
+
+  <!-- ============================
+        FOOTER
+  ============================ -->
   <footer class="site-footer">
     <div class="container">
       <p>© <span id="year2"></span> Zeronyte Security</p>
@@ -43,9 +66,10 @@
   </footer>
 
 
+  <!-- COURSES LIST -->
   <script src="assets/js/courses.js"></script>
 
-  <!-- Pagination Script -->
+  <!-- PAGINATION SCRIPT -->
   <script>
     const perPage = 9;
     let currentPage = 1;
@@ -91,9 +115,23 @@
       window.scrollTo(0, 0);
     }
 
+    // INIT
     renderCourses();
+    document.getElementById("year2").textContent = new Date().getFullYear();
   </script>
 
-  <script src="assets/js/script.js"></script>
+  <!-- HAMBURGER MENU JS -->
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("mobileMenu");
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        toggle.classList.toggle("open");
+      });
+    }
+  </script>
+
 </body>
 </html>
