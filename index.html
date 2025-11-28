@@ -15,15 +15,25 @@
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
 
+      <!-- LOGO -->
       <a class="logo" href="https://zeronytesecurity.com/">
         <img src="assets/images/logo.png" alt="Zeronyte Security logo" class="main-logo">
         <span class="brand">Zeronyte Security</span>
       </a>
 
-      <nav class="main-nav">
+      <!-- HAMBURGER BUTTON -->
+      <button class="hamburger" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAV MENU -->
+      <nav class="main-nav" id="mobileMenu">
         <a href="https://zeronytesecurity.com/">Home</a>
         <a href="https://zeronytesecurity.com/courses.html">Courses</a>
         <a href="https://zeronytesecurity.com/about.html">About</a>
@@ -66,9 +76,11 @@
   <script src="assets/js/courses.js"></script>
   <script src="assets/js/script.js"></script>
 
-  <!-- Auto-generate Featured & Preview Courses -->
+  <!-- Featured + Courses -->
   <script>
-    // FEATURED COURSE (courses[0])
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // FEATURED COURSE
     const f = document.getElementById("featuredCourse");
 
     f.innerHTML = `
@@ -83,6 +95,7 @@
       </a>
     `;
 
+    // HOME COURSES (first 3)
     const homeGrid = document.getElementById("homeCoursesGrid");
 
     courses.slice(0, 3).forEach(course => {
@@ -93,6 +106,19 @@
         </a>
       `;
     });
+  </script>
+
+  <!-- MOBILE MENU TOGGLE -->
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("mobileMenu");
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        toggle.classList.toggle("open");
+      });
+    }
   </script>
 
 </body>
