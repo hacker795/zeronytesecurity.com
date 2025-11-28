@@ -294,3 +294,75 @@ body {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-7px);
 }
+
+.contact-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-page h1 {
+  margin-bottom: 14px;
+  font-size: 32px;
+}
+
+.contact-details p {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* FORM CONTAINER */
+#contactForm {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 600px;
+}
+
+/* INPUT FIELDS */
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #111;
+  color: var(--white);
+  font-size: 16px;
+}
+
+#contactForm textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+/* BUTTON */
+#contactForm button {
+  width: fit-content;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+#contactForm button:hover {
+  background: #66e4ff;
+}
+
+
+
+@media (max-width: 768px) {
+  #contactForm {
+    width: 100%;
+  }
+
+  #contactForm button {
+    width: 100%;
+    text-align: center;
+  }
+}
